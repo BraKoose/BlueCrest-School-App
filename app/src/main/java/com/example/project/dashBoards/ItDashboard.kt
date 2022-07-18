@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
+import com.example.project.databinding.ActivityItDashboardBinding
 import com.example.project.questions.Cplus
 import com.example.project.questions.DiscreteMaths
 import com.example.project.questions.Networking
@@ -16,27 +16,29 @@ import com.google.firebase.auth.FirebaseUser
 class ItDashboard : AppCompatActivity() {
 
 
-    private var mAuth: FirebaseAuth? = null
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding: ActivityItDashboardBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_it_dashboard)
+        binding = ActivityItDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
         mAuth = FirebaseAuth.getInstance()
 
-        val cPlusBut = findViewById<ImageView>(R.id.but_cplus)
-        val discreteMathBut = findViewById<ImageView>(R.id.discreteMath_but)
-        val networkingBut = findViewById<ImageView>(R.id.networkingBut)
 
-        cPlusBut.setOnClickListener {
+        binding.butCplus.setOnClickListener {
             val intent = Intent(this, Cplus::class.java)
             startActivity(intent)
         }
 
-        discreteMathBut.setOnClickListener {
+        binding.discreteMathBut.setOnClickListener {
             val intent = Intent(this, DiscreteMaths::class.java)
             startActivity(intent)
         }
 
-        networkingBut.setOnClickListener {
+        binding.networkingBut.setOnClickListener {
             val intent = Intent(this, Networking::class.java)
             startActivity(intent)
         }
@@ -51,8 +53,8 @@ class ItDashboard : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -73,7 +75,7 @@ class ItDashboard : AppCompatActivity() {
             }
            R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser )
                 return true
             }
@@ -88,7 +90,7 @@ class ItDashboard : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
     private fun updateUI(currentUser: FirebaseUser?) {

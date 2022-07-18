@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
+import com.example.project.databinding.ActivityBizDashboardBinding
 import com.example.project.questions.Accounting
 import com.example.project.questions.Economics
 import com.example.project.questions.Statistics
@@ -14,32 +14,29 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-private var mAuth: FirebaseAuth? = null
 
 class BizDashboard : AppCompatActivity() {
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding: ActivityBizDashboardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_biz_dashboard)
+        binding = ActivityBizDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
 
-        val econsBut = findViewById<ImageView>(R.id.econsBut)
-        val accontingBut = findViewById<ImageView>(R.id.account_but)
-        val statBut = findViewById<ImageView>(R.id.statBut)
-
-
-        accontingBut.setOnClickListener {
+        binding.accountBut.setOnClickListener {
             val intent = Intent(this, Accounting::class.java)
             startActivity(intent)
         }
 
-        econsBut.setOnClickListener {
+        binding.econsBut.setOnClickListener {
             val intent = Intent(this, Economics::class.java)
             startActivity(intent)
         }
 
-        statBut.setOnClickListener {
+        binding.statBut.setOnClickListener {
             val intent = Intent(this, Statistics::class.java)
             startActivity(intent)
         }
@@ -54,8 +51,8 @@ class BizDashboard : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -76,7 +73,7 @@ class BizDashboard : AppCompatActivity() {
             }
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser )
                 return true
             }
@@ -91,7 +88,7 @@ class BizDashboard : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
 

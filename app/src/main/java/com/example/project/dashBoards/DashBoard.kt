@@ -7,28 +7,31 @@ import android.view.MenuItem
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
+import com.example.project.databinding.ActivityItDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
-private var mAuth: FirebaseAuth? = null
+import kotlinx.android.synthetic.main.activity_dash_board.*
+import kotlinx.android.synthetic.main.activity_dash_board.view.*
 
 
 class DashBoard : AppCompatActivity() {
 
-    lateinit var itLogo: ImageView
-    lateinit var massLogo: ImageView
-    lateinit var fashionLogo: ImageView
-    lateinit var businessLogo: ImageView
+
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding: ActivityItDashboardBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dash_board)
+        binding = ActivityItDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         mAuth = FirebaseAuth.getInstance()
 
-         itLogo= findViewById(R.id.itLogo)
-         massLogo = findViewById(R.id.massLogo)
-         fashionLogo = findViewById(R.id.fashionLogo)
-         businessLogo = findViewById(R.id.businessLogo)
+//         var itLogo= binding.root.itLogo
+//         var massLogo = binding.root.massLogo
+//         var fashionLogo = binding.root.fashionLogo
+//         var businessLogo = binding.root.businessLogo
 
 
         itLogo.setOnClickListener {
@@ -60,8 +63,8 @@ class DashBoard : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -87,7 +90,7 @@ class DashBoard : AppCompatActivity() {
             }
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser )
                 return true
             }
@@ -98,7 +101,7 @@ class DashBoard : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
 
     }

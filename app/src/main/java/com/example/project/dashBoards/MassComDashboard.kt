@@ -6,17 +6,21 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
+import com.example.project.databinding.ActivityMassComDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-private var mAuth: FirebaseAuth? = null
 
 class MassComDashboard : AppCompatActivity() {
 
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding:ActivityMassComDashboardBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mass_com_dashboard)
+        binding = ActivityMassComDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
     }
@@ -29,8 +33,8 @@ class MassComDashboard : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -51,7 +55,7 @@ class MassComDashboard : AppCompatActivity() {
             }
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser )
                 return true
             }
@@ -66,7 +70,7 @@ class MassComDashboard : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
 
