@@ -12,14 +12,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.dashBoards.DashBoard
+import com.example.project.databinding.ActivityGpaCalculatorBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-private var mAuth: FirebaseAuth? = null
-
-class Gpa_Calculator : AppCompatActivity() {
 
 
+class GpaCalculator : AppCompatActivity() {
+
+    private lateinit var binding:ActivityGpaCalculatorBinding
+
+    private lateinit var  mAuth: FirebaseAuth
     lateinit var e1: EditText
     lateinit var e2: EditText
     lateinit var e3: EditText
@@ -44,7 +47,7 @@ class Gpa_Calculator : AppCompatActivity() {
 
     internal var dsGpa = 0.0
     internal var osGpa = 0.0
-    internal var DbmsGpa = 0.0
+    internal var dbmsGpa = 0.0
     internal var swGpa = 0.0
     internal var cpGpa = 0.0
     var d = ""
@@ -52,37 +55,38 @@ class Gpa_Calculator : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gpa__calculator)
+        binding = ActivityGpaCalculatorBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
 
         //courses
-        e1 = findViewById(R.id.ds)
-        e2 = findViewById(R.id.db)
-        e3 = findViewById(R.id.os)
-        e4 = findViewById(R.id.sw)
-        e5 = findViewById(R.id.cp)
+        e1 = binding.ds
+        e2 = binding.db
+        e3 = binding.os
+        e4 = binding.sw
+        e5 = binding.cp
 
         //credit hours
-        c1 = findViewById(R.id.ch1)
-        c2 = findViewById(R.id.ch2)
-        c3 = findViewById(R.id.ch3)
-        c4 = findViewById(R.id.ch4)
-        c5 = findViewById(R.id.ch5)
+        c1 = binding.ch1
+        c2 = binding.ch2
+        c3 = binding.ch3
+        c4 = binding.ch4
+        c5 = binding.ch5
 
         //buttons
-        b1 = findViewById(R.id.but)
-        re = findViewById(R.id.reset)
+        b1 = binding.but
+        re = binding.reset
 
         //textViews
 
-        aa = findViewById(R.id.ds1)
-        bb = findViewById(R.id.ds2)
-        cc = findViewById(R.id.ds3)
-        dd = findViewById(R.id.ds4)
-        ee = findViewById(R.id.ds5)
-        gg = findViewById(R.id.fail)
-        ff = findViewById(R.id.result)
+        aa = binding.ds1
+        bb = binding.ds2
+        cc = binding.ds3
+        dd = binding.ds4
+        ee = binding.ds5
+        gg = binding.fail
+        ff = binding.result
 
 
         //reset button
@@ -142,15 +146,15 @@ class Gpa_Calculator : AppCompatActivity() {
 
                 if (aaa == "E" || bbb == "E" || ccc == "E" || ddd == "E" || eee == "E") {
 
-                    gg.text = "You have to Rewrite some paper(s) "
+                    gg.text = getString(R.string.Rewrite)
 
                 } else {
-                    gg.text = "Congratulation!! You Passed All Papers"
+                    gg.text = getString(R.string.Passed)
 
 
                 }
                 if (aaa == "Invalid Mark" || bbb == "Invalid Mark" || ccc == "Invalid Mark" || ddd == "Invalid Mark" || eee == "Invalid Mark") {
-                    ff.text = "Invalid Mark(s) Could Not Calculate "
+                    ff.text = getString(R.string.InvalidMarks)
                 }
 
                 //setting grades into the textView
@@ -171,7 +175,7 @@ class Gpa_Calculator : AppCompatActivity() {
 
 
                 val mark =
-                    ((dsGpa * h1) + (DbmsGpa * h2) + (osGpa * h3) + (swGpa * h4) + (cpGpa * h5)) / totalHours.toFloat()
+                    ((dsGpa * h1) + (dbmsGpa * h2) + (osGpa * h3) + (swGpa * h4) + (cpGpa * h5)) / totalHours.toFloat()
 
                 Toast.makeText(applicationContext, "You GPA is :$mark", Toast.LENGTH_LONG).show()
                 // grade = 0.0
@@ -247,30 +251,30 @@ class Gpa_Calculator : AppCompatActivity() {
 
                 //DBMS
                 if (q == "A") {
-                    DbmsGpa = 4.0
+                    dbmsGpa = 4.0
                 }
                 if (q == "B+") {
-                    DbmsGpa = 3.5
+                    dbmsGpa = 3.5
                 }
                 if (q == "B") {
-                    DbmsGpa = 3.0
+                    dbmsGpa = 3.0
                 }
                 if (q == "C+") {
-                    DbmsGpa = 2.5
+                    dbmsGpa = 2.5
                 }
                 if (q == "C") {
-                    DbmsGpa = 2.0
+                    dbmsGpa = 2.0
                 }
                 if (q == "D+") {
-                    DbmsGpa = 1.5
+                    dbmsGpa = 1.5
                 }
                 if (q == "D") {
-                    DbmsGpa = 1.0
+                    dbmsGpa = 1.0
                 }
                 if (q == "E") {
-                    DbmsGpa = 0.0
+                    dbmsGpa = 0.0
                 }
-                return DbmsGpa
+                return dbmsGpa
             }
 
             fun osFun(q: String): Double {
@@ -376,8 +380,8 @@ class Gpa_Calculator : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -387,7 +391,7 @@ class Gpa_Calculator : AppCompatActivity() {
 
             R.id.mnu_Calculator -> {
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, Gpa_Calculator::class.java))
+                this.startActivity(Intent(this, GpaCalculator::class.java))
 
                 return true
             }
@@ -399,7 +403,7 @@ class Gpa_Calculator : AppCompatActivity() {
             }
             R.id.mnu_Timeline -> {
 
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser)
             }
             R.id.mnu_pastQuestions -> {
@@ -414,7 +418,7 @@ class Gpa_Calculator : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
 
     }

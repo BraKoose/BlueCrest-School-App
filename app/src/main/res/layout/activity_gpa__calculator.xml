@@ -9,7 +9,7 @@
 
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    tools:context=".Gpa_Calculator">
+    tools:context=".GpaCalculator">
 
     <TextView
         android:id="@+id/textView"

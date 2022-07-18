@@ -80,7 +80,7 @@ class Transcript : AppCompatActivity() {
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -90,7 +90,7 @@ class Transcript : AppCompatActivity() {
 
             R.id.mnu_Calculator -> {
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, Gpa_Calculator::class.java))
+                this.startActivity(Intent(this, GpaCalculator::class.java))
                 return true
             }
             R.id.mnu_Sign_Out -> {
@@ -102,7 +102,7 @@ class Transcript : AppCompatActivity() {
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
 //                return true
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
             updateUI(currentUser )
             }
             R.id.mnu_pastQuestions ->{
@@ -117,7 +117,7 @@ class Transcript : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
 
     }

@@ -2,4 +2,7 @@
     <string name="app_name">Blue Book</string>
     <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
+    <string name="Rewrite">\"You have to Rewrite some paper(s) \"</string>
+    <string name="Passed">Congratulation!! You Passed All Papers</string>
+    <string name="InvalidMarks">\"Invalid Mark(s) Could Not Calculate \"</string>
 </resources>

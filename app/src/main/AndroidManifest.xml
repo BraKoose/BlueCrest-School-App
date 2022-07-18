@@ -28,7 +28,7 @@
         <activity android:name=".dashBoards.ItDashboard" />
         <activity android:name=".dashBoards.DashBoard" />
         <activity android:name=".VerifyUser" />
-        <activity android:name=".Gpa_Calculator" />
+        <activity android:name=".GpaCalculator" />
         <activity android:name=".Transcript" />
         <activity android:name=".Login">
             <intent-filter>

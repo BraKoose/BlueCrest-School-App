@@ -40,7 +40,7 @@ class MassComDashboard : AppCompatActivity() {
 
             R.id.mnu_Calculator -> {
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, Gpa_Calculator::class.java))
+                this.startActivity(Intent(this, GpaCalculator::class.java))
                 return true
             }
             R.id.mnu_Sign_Out -> {

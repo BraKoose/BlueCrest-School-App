@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.project.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -27,7 +28,7 @@ class Login : AppCompatActivity(){
 
     //private val mStorageRef: StorageReference? = null
 
-
+    private lateinit var binding:ActivityLoginBinding
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.reference
 
@@ -36,16 +37,17 @@ class Login : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
 
 
-        ivImagePerson.setOnClickListener {
+        binding.ivImagePerson.setOnClickListener {
             checkPermission()
         }
 
-        but_Login.setOnClickListener {
+        binding.butLogin.setOnClickListener {
             startActivity(Intent(this, VerifyUser::class.java))
 
         }
@@ -53,7 +55,7 @@ class Login : AppCompatActivity(){
 
     fun LoginToFireBase(email: String, password: String) {
 
-        mAuth!!.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Successful Login ", Toast.LENGTH_LONG)
@@ -71,15 +73,15 @@ class Login : AppCompatActivity(){
     }
 
 
-    fun SaveImageInFirebase() {
-        var currentUser = mAuth!!.currentUser
+    private fun SaveImageInFirebase() {
+        val currentUser = mAuth.currentUser
         val email: String = currentUser!!.email.toString()
         val storage = FirebaseStorage.getInstance()
         val storgaRef = storage.getReferenceFromUrl("gs://pro-book-72bf7.appspot.com/")
         val df = SimpleDateFormat("ddMMyyHHmmss")
         val dataobj = Date()
         val imagePath = SplitString(email) + "." + df.format(dataobj) + ".jpg"
-        val ImageRef = storgaRef.child("images/" + imagePath)
+        val ImageRef = storgaRef.child("images/$imagePath")
         ivImagePerson.isDrawingCacheEnabled = true
         ivImagePerson.buildDrawingCache()
         val drawable = ivImagePerson.drawable as BitmapDrawable
@@ -92,7 +94,7 @@ class Login : AppCompatActivity(){
         val uploadTask = ImageRef.putBytes(data)
         uploadTask.addOnFailureListener {
             Toast.makeText(applicationContext, "fail to upload", Toast.LENGTH_LONG).show()
-        }.addOnSuccessListener { taskSnapshot ->
+        }.addOnSuccessListener {
 
             ImageRef.downloadUrl.addOnCompleteListener() { task ->
 
@@ -120,13 +122,13 @@ class Login : AppCompatActivity(){
         LoadTweets()
     }
 
-    fun LoadTweets() {
-        var currentUser = mAuth!!.currentUser
+    private fun LoadTweets() {
+        val currentUser = mAuth.currentUser
 
         if (currentUser != null) {
 
 
-            var intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("email", currentUser.email)
             intent.putExtra("uid", currentUser.uid)
 
@@ -134,8 +136,8 @@ class Login : AppCompatActivity(){
         }
     }
 
-    val READIMAGE: Int = 253
-    fun checkPermission() {
+    private val READIMAGE: Int = 253
+    private fun checkPermission() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (ActivityCompat.checkSelfPermission(
                     this,
@@ -173,7 +175,7 @@ class Login : AppCompatActivity(){
 
     val PICK_IMAGE_CODE = 123
     fun loadImage() {
-        var intent = Intent(
+        val intent = Intent(
             Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         )

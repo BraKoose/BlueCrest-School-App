@@ -33,35 +33,35 @@ class VerifyUser : AppCompatActivity() {
     }
 
     fun buSignIn(view: View) {
-        mAuth!!.signInWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
-            .addOnCompleteListener(this,
-                OnCompleteListener<AuthResult> { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
+        mAuth.signInWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
+            .addOnCompleteListener(this
+            ) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
 
-                        val user = mAuth!!.currentUser
-                        if (user != null) {
-                            updateUI(user)
-                        }
-                    } else {
-                        // If sign in fails, display a message to the user.
-
-                        Toast.makeText(
-                            baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        updateUI(null)
+                    val user = mAuth.currentUser
+                    if (user != null) {
+                        updateUI(user)
                     }
+                } else {
+                    // If sign in fails, display a message to the user.
 
-                    // ...
-                })
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    updateUI(null)
+                }
+
+                // ...
+            }
 
     }
 
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = mAuth!!.currentUser
+        val currentUser = mAuth.currentUser
         updateUI(currentUser)
     }
 
