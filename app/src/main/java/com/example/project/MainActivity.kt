@@ -34,10 +34,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-private var mAuth: FirebaseAuth? = null
+
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
 
     private var database = FirebaseDatabase.getInstance()
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
 //                return true
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser )
             }
 
@@ -328,7 +328,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
     fun signOut(){
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
 
     }
