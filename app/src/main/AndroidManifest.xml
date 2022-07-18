@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.example.project">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/src_edited"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/src_edited"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".questions.Statistics"></activity>
+        <activity android:name=".questions.Accounting" />
+        <activity android:name=".questions.Economics" />
+        <activity android:name=".questions.Networking" />
+        <activity android:name=".questions.DiscreteMaths" />
+        <activity android:name=".questions.ResultActivity" />
+        <activity android:name=".questions.Cplus" />
+        <activity android:name=".dashBoards.MassComDashboard" />
+        <activity android:name=".dashBoards.FashionDashboard" />
+        <activity android:name=".dashBoards.BizDashboard" />
+        <activity android:name=".dashBoards.ItDashboard" />
+        <activity android:name=".dashBoards.DashBoard" />
+        <activity android:name=".VerifyUser" />
+        <activity android:name=".Gpa_Calculator" />
+        <activity android:name=".Transcript" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

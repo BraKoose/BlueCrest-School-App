@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mnu_Transcript"
+        android:icon="@drawable/icons8"
+        android:title="TRANSCRIPT"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mnu_Calculator"
+        android:icon="@drawable/icons8cal"
+        android:title="CALCULATOR"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mnu_pastQuestions"
+        android:icon="@drawable/qa"
+        android:title="PAST QUESTION"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/mnu_Sign_Out"
+        android:title="SIGN OUT" />
+    <item
+        android:id="@+id/mnu_Timeline"
+        android:icon="@drawable/chat"
+        android:title="TimeLine"
+        app:showAsAction="always" />
+</menu>
