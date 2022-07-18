@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.8284313725490197" />
+        <entry key="app/src/main/res/layout/activity_accounting.xml" value="0.1286727456940223" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.12" />
         <entry key="app/src/main/res/layout/activity_fashion_dashboard.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_it_dashboard.xml" value="0.15" />

@@ -53,8 +53,8 @@ class ResultActivity : AppCompatActivity() {
     }
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))

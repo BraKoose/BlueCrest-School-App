@@ -5,4 +5,7 @@
     <string name="Rewrite">\"You have to Rewrite some paper(s) \"</string>
     <string name="Passed">Congratulation!! You Passed All Papers</string>
     <string name="InvalidMarks">\"Invalid Mark(s) Could Not Calculate \"</string>
+    <string name="what_is_the_question">What is the question</string>
+    <string name="option_3">Option 3</string>
+    <string name="complte">Completed</string>
 </resources>
