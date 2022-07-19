@@ -273,14 +273,13 @@ class Networking : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 var seconds = millisUntilFinished.toInt() / 1000
                 val minutes = seconds / 60
-                seconds = seconds % 60
+                seconds %= 60
 
-                tv.text = (String.format("%02d", minutes)
-                        + ":" + String.format("%02d", seconds))
+                tv.text = ("${String.format("%02d", minutes)}:${String.format("%02d", seconds)}")
             }
 
             override fun onFinish() {
-                tv.text = "Completed"
+                tv.text = getString(R.string.completed)
                 val myIntent = Intent(this@Networking, ResultActivity::class.java)
                 myIntent.putExtra("Total", total.toString())
                 myIntent.putExtra("Correct", correct.toString())

@@ -13,21 +13,25 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
 import com.example.project.R
 import com.example.project.dashBoards.DashBoard
+import com.example.project.databinding.ActivityDiscreteMathsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 
-private var mAuth: FirebaseAuth? = null
 
 class DiscreteMaths : AppCompatActivity() {
 
-    lateinit var b1: Button
-    lateinit var b2: Button
-    lateinit var b3: Button
-    lateinit var b4: Button
-    lateinit var t1_question: TextView
-    lateinit var timerTxt: TextView
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding:ActivityDiscreteMathsBinding
+
+    private var b1 = binding.button1
+    private var b2 = binding.button2
+    private var b3 = binding.button3
+    private var b4 = binding.button4
+    //
+//
+    var t1Question = binding.questionsTxt
     var total = 0
     var correct = 0
     lateinit var reference: DatabaseReference
@@ -36,19 +40,15 @@ class DiscreteMaths : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_discrete_maths)
+        binding = ActivityDiscreteMathsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
 
-        b1 = findViewById(R.id.button1)
-        b2 = findViewById(R.id.button2)
-        b3 = findViewById(R.id.button3)
-        b4 = findViewById(R.id.button4)
 
 
-        t1_question = findViewById(R.id.questionsTxt)
-        timerTxt = findViewById(R.id.timerTxt)
-
+        t1Question = binding.questionsTxt
+        val timerTxt = binding.timerTxt
 
         updateQuestion()
         reverseTimer(240, timerTxt)
@@ -73,7 +73,7 @@ class DiscreteMaths : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val question = dataSnapshot.getValue<Question>(Question::class.java)
 
-                    t1_question.text = question!!.getQuestion()
+                    t1Question.text = question!!.getQuestion()
                     b1.text = question.getOption1()
                     b2.text = question.getOption2()
                     b3.text = question.getOption3()
@@ -274,14 +274,13 @@ class DiscreteMaths : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 var seconds = millisUntilFinished.toInt() / 1000
                 val minutes = seconds / 60
-                seconds = seconds % 60
+                seconds %= 60
 
-                tv.text = (String.format("%02d", minutes)
-                        + ":" + String.format("%02d", seconds))
+                tv.text = ("${String.format("%02d", minutes)}:${String.format("%02d", seconds)}")
             }
 
             override fun onFinish() {
-                tv.text = "Completed"
+                tv.text = getString(R.string.zzs)
                 val myIntent = Intent(this@DiscreteMaths, ResultActivity::class.java)
                 myIntent.putExtra("Total", total.toString())
                 myIntent.putExtra("Correct", correct.toString())
@@ -321,7 +320,7 @@ class DiscreteMaths : AppCompatActivity() {
             }
             R.id.mnu_Timeline -> {
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser)
                 return true
             }
@@ -336,7 +335,7 @@ class DiscreteMaths : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
 
