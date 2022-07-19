@@ -25,7 +25,7 @@ class Statistics : AppCompatActivity() {
     private lateinit var binding: ActivityStatisticsBinding
 
 
-  private var b1 = binding.button1
+    private var b1 = binding.button1
     private var b2 = binding.button2
     private var b3 = binding.button3
     private var b4 = binding.button4

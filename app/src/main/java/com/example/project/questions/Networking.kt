@@ -7,27 +7,31 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
 import com.example.project.R
 import com.example.project.dashBoards.DashBoard
+import com.example.project.databinding.ActivityNetworkingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 
-private var mAuth: FirebaseAuth? = null
+
 
 class Networking : AppCompatActivity() {
 
-    lateinit var b1: Button
-    lateinit var b2: Button
-    lateinit var b3: Button
-    lateinit var b4: Button
-    lateinit var t1_question: TextView
-    lateinit var timerTxt: TextView
+    private lateinit var  mAuth: FirebaseAuth
+    private lateinit var binding:ActivityNetworkingBinding
+
+    private var b1 = binding.button1
+    private var b2 = binding.button2
+    private var b3 = binding.button3
+    private var b4 = binding.button4
+    private var t1Question = binding.questionsTxt
+
+    //
     var total = 0
     var correct = 0
     lateinit var reference: DatabaseReference
@@ -36,20 +40,13 @@ class Networking : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_networking)
+        binding = ActivityNetworkingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
 
 
-
-        b1 = findViewById(R.id.button1)
-        b2 = findViewById(R.id.button2)
-        b3 = findViewById(R.id.button3)
-        b4 = findViewById(R.id.button4)
-
-
-        t1_question = findViewById(R.id.questionsTxt)
-        timerTxt = findViewById(R.id.timerTxt)
+        val timerTxt = binding.timerTxt
 
 
         updateQuestion()
@@ -75,7 +72,7 @@ class Networking : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val question = dataSnapshot.getValue<Question>(Question::class.java)
 
-                    t1_question.text = question!!.getQuestion()
+                    t1Question.text = question!!.getQuestion()
                     b1.text = question.getOption1()
                     b2.text = question.getOption2()
                     b3.text = question.getOption3()
@@ -269,7 +266,7 @@ class Networking : AppCompatActivity() {
         }
     }
 
-    fun reverseTimer(seconds: Int, tv: TextView) {
+    private fun reverseTimer(seconds: Int, tv: TextView) {
 
         object : CountDownTimer((seconds * 1000 + 1000).toLong(), 1000) {
 
@@ -302,7 +299,7 @@ class Networking : AppCompatActivity() {
 
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
                 this.startActivity(Intent(this, Transcript::class.java))
@@ -323,7 +320,7 @@ class Networking : AppCompatActivity() {
             }
             R.id.mnu_Timeline -> {
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser)
                 return true
             }
@@ -338,7 +335,7 @@ class Networking : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
     private fun updateUI(currentUser: FirebaseUser?) {
