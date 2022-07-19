@@ -44,7 +44,7 @@ class Statistics : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
 
-      var  timerTxt = binding.timerTxt
+      val timerTxt = binding.timerTxt
 
 
         updateQuestion()
@@ -258,7 +258,7 @@ class Statistics : AppCompatActivity() {
         }
     }
 
-    fun reverseTimer(seconds: Int, tv: TextView) {
+    private fun reverseTimer(seconds: Int, tv: TextView) {
 
         object : CountDownTimer((seconds * 1000 + 1000).toLong(), 1000) {
 
@@ -267,12 +267,11 @@ class Statistics : AppCompatActivity() {
                 val minutes = seconds / 60
                 seconds = seconds % 60
 
-                tv.text = (String.format("%02d", minutes)
-                        + ":" + String.format("%02d", seconds))
+                tv.text = ("${String.format("%02d", minutes)}:${String.format("%02d", seconds)}")
             }
 
             override fun onFinish() {
-                tv.text = "Completed"
+                tv.text = getString(R.string.complete)
                 val myIntent = Intent(this@Statistics, ResultActivity::class.java)
                 myIntent.putExtra("Total", total.toString())
                 myIntent.putExtra("Correct", correct.toString())
@@ -312,7 +311,7 @@ class Statistics : AppCompatActivity() {
             }
             R.id.mnu_Timeline -> {
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser)
                 return true
             }
@@ -327,7 +326,7 @@ class Statistics : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
 

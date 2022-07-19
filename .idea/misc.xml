@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_it_dashboard.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_mass_com_dashboard.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_statistics.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_verify_user.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/tweets_ticket.xml" value="0.1" />
       </map>

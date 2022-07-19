@@ -4,21 +4,30 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
 import com.example.project.dashBoards.DashBoard
+import com.example.project.databinding.ActivityResultBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-private var mAuth: FirebaseAuth? = null
+
 class ResultActivity : AppCompatActivity() {
 
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding: ActivityResultBinding
 
-    lateinit var t1: TextView
-    lateinit var t2: TextView
-    lateinit var t3: TextView
+
+
+//    lateinit var t1: TextView
+//    lateinit var t2: TextView
+//    lateinit var t3: TextView
+
+   private var  t1 = binding.textView4
+    private var  t2 = binding.textView5
+    private var t3 = binding.textView6
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +37,6 @@ class ResultActivity : AppCompatActivity() {
 
 
 
-        t1 = findViewById(R.id.textView4)
-        t2 = findViewById(R.id.textView5)
-        t3 = findViewById(R.id.textView6)
 
 
         val i = intent
@@ -75,7 +81,7 @@ class ResultActivity : AppCompatActivity() {
             }
             R.id.mnu_Timeline -> {
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth!!.currentUser
+                val currentUser = mAuth.currentUser
                 updateUI(currentUser)
                 return true
             }
@@ -90,7 +96,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     fun signOut() {
-        mAuth!!.signOut()
+        mAuth.signOut()
         finish()
     }
     private fun updateUI(currentUser: FirebaseUser?) {
