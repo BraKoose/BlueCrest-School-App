@@ -17,8 +17,7 @@ import com.example.project.databinding.ActivityStatisticsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-
-
+import kotlinx.android.synthetic.main.activity_statistics.*
 
 
 class Statistics : AppCompatActivity() {
@@ -26,12 +25,13 @@ class Statistics : AppCompatActivity() {
     private lateinit var binding: ActivityStatisticsBinding
 
 
-    lateinit var b1: Button
-    lateinit var b2: Button
-    lateinit var b3: Button
-    lateinit var b4: Button
-    lateinit var t1Question: TextView
-    lateinit var timerTxt: TextView
+  private var b1 = binding.button1
+    private var b2 = binding.button2
+    private var b3 = binding.button3
+    private var b4 = binding.button4
+    //
+//
+    var t1Question = binding.questionsTxt
     var total = 0
     var correct = 0
     lateinit var reference: DatabaseReference
@@ -43,14 +43,8 @@ class Statistics : AppCompatActivity() {
         setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
-        b1 = findViewById(R.id.button1)
-        b2 = findViewById(R.id.button2)
-        b3 = findViewById(R.id.button3)
-        b4 = findViewById(R.id.button4)
 
-
-        t1Question = findViewById(R.id.questionsTxt)
-        timerTxt = findViewById(R.id.timerTxt)
+      var  timerTxt = binding.timerTxt
 
 
         updateQuestion()
@@ -76,7 +70,7 @@ class Statistics : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val question = dataSnapshot.getValue<Question>(Question::class.java)
 
-                    t1Question.text = question!!.getQuestion()
+                   t1Question.text = question!!.getQuestion()
                     b1.text = question.getOption1()
                     b2.text = question.getOption2()
                     b3.text = question.getOption3()
