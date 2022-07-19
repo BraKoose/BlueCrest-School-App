@@ -13,20 +13,24 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.project.*
 import com.example.project.dashBoards.DashBoard
 import com.example.project.R
+import com.example.project.databinding.ActivityStatisticsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 
-private var mAuth: FirebaseAuth? = null
+
 
 class Statistics : AppCompatActivity() {
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var binding: ActivityStatisticsBinding
+
 
     lateinit var b1: Button
     lateinit var b2: Button
     lateinit var b3: Button
     lateinit var b4: Button
-    lateinit var t1_question: TextView
+    lateinit var t1Question: TextView
     lateinit var timerTxt: TextView
     var total = 0
     var correct = 0
@@ -35,7 +39,8 @@ class Statistics : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_statistics)
+        binding = ActivityStatisticsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
         b1 = findViewById(R.id.button1)
@@ -44,7 +49,7 @@ class Statistics : AppCompatActivity() {
         b4 = findViewById(R.id.button4)
 
 
-        t1_question = findViewById(R.id.questionsTxt)
+        t1Question = findViewById(R.id.questionsTxt)
         timerTxt = findViewById(R.id.timerTxt)
 
 
@@ -71,7 +76,7 @@ class Statistics : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val question = dataSnapshot.getValue<Question>(Question::class.java)
 
-                    t1_question.text = question!!.getQuestion()
+                    t1Question.text = question!!.getQuestion()
                     b1.text = question.getOption1()
                     b2.text = question.getOption2()
                     b3.text = question.getOption3()
