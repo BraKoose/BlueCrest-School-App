@@ -69,172 +69,20 @@ class Accounting : AppCompatActivity() {
 
 
                   button1.setOnClickListener {
-                        if (button1.text.toString() == question.getAnswer()) {
-
-                            button1.setBackgroundColor(Color.GREEN)
-
-
-                            val handler = Handler()
-                            handler.postDelayed({
-                                correct++
-                                button1.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                updateQuestion()
-                            }, 1500)
-                        } else {
-                            // answer is wrong... find correct answer an make it green
-
-                            wrong++
-                            button1.setBackgroundColor(Color.RED)
-
-                            when {
-                                button2.text.toString() == question.getAnswer() -> button2.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                                button3.text.toString() == question.getAnswer() -> button3.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                                button4.text.toString() == question.getAnswer() -> button4.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                            }
-
-                            val handler = Handler()
-                            handler.postDelayed(
-                                {
-                                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    updateQuestion()
-                                }, 1500
-                            )
-
-                        }
+                      questionButtons(question)
                     }
 
                     button2.setOnClickListener {
-                        if (button2.text.toString() == question.getAnswer()) {
-
-                            button2.setBackgroundColor(Color.GREEN)
-
-
-                            val handler = Handler()
-                            handler.postDelayed({
-                                correct++
-                                button2.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                updateQuestion()
-                            }, 1500)
-                        } else {
-                            // answer is wrong... find correct answer an make it green
-
-                            wrong++
-                            button2.setBackgroundColor(Color.RED)
-
-                            if (button1.text.toString() == question.getAnswer()) {
-                                button1.setBackgroundColor(Color.GREEN)
-                            } else if (button3.text.toString() == question.getAnswer()) {
-                                button3.setBackgroundColor(Color.GREEN)
-                            } else if (button4.text.toString() == question.getAnswer()) {
-                                button4.setBackgroundColor(Color.GREEN)
-                            }
-
-                            val handler = Handler()
-                            handler.postDelayed(
-                                {
-                                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    updateQuestion()
-                                }, 1500
-                            )
-
-                        }
+                        questionButton2(question)
                     }
 
 
                     button3.setOnClickListener {
-                        if (button3.text.toString() == question.getAnswer()) {
-
-                            button3.setBackgroundColor(Color.GREEN)
-
-
-                            val handler = Handler()
-                            handler.postDelayed({
-                                correct++
-                                button3.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                updateQuestion()
-                            }, 1500)
-                        } else {
-                            // answer is wrong... find correct answer an make it green
-
-                            wrong++
-                            button3.setBackgroundColor(Color.RED)
-
-                            when {
-                                button1.text.toString() == question.getAnswer() -> button1.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                                button2.text.toString() == question.getAnswer() -> button2.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                                button4.text.toString() == question.getAnswer() -> button4.setBackgroundColor(
-                                    Color.GREEN
-                                )
-                            }
-
-                            val handler = Handler()
-                            handler.postDelayed(
-                                {
-                                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    updateQuestion()
-                                }, 1500
-                            )
-
-                        }
+                        questionButton3(question)
                     }
 
                     button4.setOnClickListener {
-                        if (button4.text.toString() == question.getAnswer()) {
-
-                            button4.setBackgroundColor(Color.GREEN)
-
-
-                            val handler = Handler()
-                            handler.postDelayed({
-                                correct++
-                                button4.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                updateQuestion()
-                            }, 1500)
-                        } else {
-                            // answer is wrong... find correct answer an make it green
-
-                            wrong++
-                            button4.setBackgroundColor(Color.RED)
-
-                            if (button1.text.toString() == question.getAnswer()) {
-                                button1.setBackgroundColor(Color.GREEN)
-                            } else if (button2.text.toString() == question.getAnswer()) {
-                                button2.setBackgroundColor(Color.GREEN)
-                            } else if (button3.text.toString() == question.getAnswer()) {
-                                button3.setBackgroundColor(Color.GREEN)
-                            }
-
-                            val handler = Handler()
-                            handler.postDelayed(
-                                {
-                                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
-                                    updateQuestion()
-                                }, 1500
-                            )
-
-                        }
+                        questionButton4(question)
                     }
 
                 }
@@ -243,6 +91,174 @@ class Accounting : AppCompatActivity() {
 
                 }
             })
+
+        }
+    }
+
+    private fun questionButton4(question: Question) {
+        if (button4.text.toString() == question.getAnswer()) {
+
+            button4.setBackgroundColor(Color.GREEN)
+
+
+            val handler = Handler()
+            handler.postDelayed({
+                correct++
+                button4.setBackgroundColor(Color.parseColor("#03A9F4"))
+                updateQuestion()
+            }, 1500)
+        } else {
+            // answer is wrong... find correct answer an make it green
+
+            wrong++
+            button4.setBackgroundColor(Color.RED)
+
+            if (button1.text.toString() == question.getAnswer()) {
+                button1.setBackgroundColor(Color.GREEN)
+            } else if (button2.text.toString() == question.getAnswer()) {
+                button2.setBackgroundColor(Color.GREEN)
+            } else if (button3.text.toString() == question.getAnswer()) {
+                button3.setBackgroundColor(Color.GREEN)
+            }
+
+            val handler = Handler()
+            handler.postDelayed(
+                {
+                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    updateQuestion()
+                }, 1500
+            )
+
+        }
+    }
+
+    private fun questionButton3(question: Question) {
+        if (button3.text.toString() == question.getAnswer()) {
+
+            button3.setBackgroundColor(Color.GREEN)
+
+
+            val handler = Handler()
+            handler.postDelayed({
+                correct++
+                button3.setBackgroundColor(Color.parseColor("#03A9F4"))
+                updateQuestion()
+            }, 1500)
+        } else {
+            // answer is wrong... find correct answer an make it green
+
+            wrong++
+            button3.setBackgroundColor(Color.RED)
+
+            when {
+                button1.text.toString() == question.getAnswer() -> button1.setBackgroundColor(
+                    Color.GREEN
+                )
+                button2.text.toString() == question.getAnswer() -> button2.setBackgroundColor(
+                    Color.GREEN
+                )
+                button4.text.toString() == question.getAnswer() -> button4.setBackgroundColor(
+                    Color.GREEN
+                )
+            }
+
+            val handler = Handler()
+            handler.postDelayed(
+                {
+                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    updateQuestion()
+                }, 1500
+            )
+
+        }
+    }
+
+    private fun questionButton2(question: Question) {
+        if (button2.text.toString() == question.getAnswer()) {
+
+            button2.setBackgroundColor(Color.GREEN)
+
+
+            val handler = Handler()
+            handler.postDelayed({
+                correct++
+                button2.setBackgroundColor(Color.parseColor("#03A9F4"))
+                updateQuestion()
+            }, 1500)
+        } else {
+            // answer is wrong... find correct answer an make it green
+
+            wrong++
+            button2.setBackgroundColor(Color.RED)
+
+            if (button1.text.toString() == question.getAnswer()) {
+                button1.setBackgroundColor(Color.GREEN)
+            } else if (button3.text.toString() == question.getAnswer()) {
+                button3.setBackgroundColor(Color.GREEN)
+            } else if (button4.text.toString() == question.getAnswer()) {
+                button4.setBackgroundColor(Color.GREEN)
+            }
+
+            val handler = Handler()
+            handler.postDelayed(
+                {
+                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    updateQuestion()
+                }, 1500
+            )
+
+        }
+    }
+
+    private fun questionButtons(question: Question) {
+        if (button1.text.toString() == question.getAnswer()) {
+
+            button1.setBackgroundColor(Color.GREEN)
+
+
+            val handler = Handler()
+            handler.postDelayed({
+                correct++
+                button1.setBackgroundColor(Color.parseColor("#03A9F4"))
+                updateQuestion()
+            }, 1500)
+        } else {
+            // answer is wrong... find correct answer an make it green
+
+            wrong++
+            button1.setBackgroundColor(Color.RED)
+
+            when {
+                button2.text.toString() == question.getAnswer() -> button2.setBackgroundColor(
+                    Color.GREEN
+                )
+                button3.text.toString() == question.getAnswer() -> button3.setBackgroundColor(
+                    Color.GREEN
+                )
+                button4.text.toString() == question.getAnswer() -> button4.setBackgroundColor(
+                    Color.GREEN
+                )
+            }
+
+            val handler = Handler()
+            handler.postDelayed(
+                {
+                    button1.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button2.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button3.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    button4.setBackgroundColor(Color.parseColor("#03A9F4"))
+                    updateQuestion()
+                }, 1500
+            )
 
         }
     }

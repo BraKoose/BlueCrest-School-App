@@ -62,41 +62,64 @@ class BizDashboard : AppCompatActivity() {
         return true
     }
 
+    private val toTranscript: Boolean
+        get() {
+            this.startActivity(Intent(this, Transcript::class.java))
+            return true
+        }
+
+    private val toCalculator: Boolean
+        get() {
+            this.startActivity(Intent(this, GpaCalculator::class.java))
+            return true
+        }
+
+    private val verifyUser: Boolean
+        get() {
+            this.startActivity(Intent(this, VerifyUser::class.java))
+            return true
+        }
+
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
-                this.startActivity(Intent(this, Transcript::class.java))
-                return true
+                return toTranscript
             }
 
 
             R.id.mnu_Calculator -> {
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, GpaCalculator::class.java))
-                return true
+                return toCalculator
             }
             R.id.mnu_Sign_Out -> {
                 signOut()
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, VerifyUser::class.java))
-                return true
+                return verifyUser
             }
             R.id.mnu_Timeline ->{
-//                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth.currentUser
-                updateUI(currentUser )
-                return true
+                return confirmUser()
             }
             R.id.mnu_pastQuestions -> {
-                this.startActivity(Intent(this, DashBoard::class.java))
-                return true
+                return toDashboard()
             }
 
             else ->
                 return super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun toDashboard(): Boolean {
+        this.startActivity(Intent(this, DashBoard::class.java))
+        return true
+    }
+
+    private fun confirmUser(): Boolean {
+        //                this.startActivity(Intent(this,MainActivity::class.java))
+        val currentUser = mAuth.currentUser
+        updateUI(currentUser)
+        return true
     }
 
     fun signOut() {
