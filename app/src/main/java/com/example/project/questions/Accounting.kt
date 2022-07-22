@@ -293,36 +293,61 @@ class Accounting : AppCompatActivity() {
         return true
     }
 
+    private val toTranscript: Boolean
+        get() {
+            this.startActivity(Intent(this, Transcript::class.java))
+            return true
+        }
+
+    private val toCalculatorGPa: Boolean
+        get() {
+            this.startActivity(Intent(this, GpaCalculator::class.java))
+            return true
+        }
+
+    private val signOut: Boolean
+        get() {
+            this.startActivity(Intent(this, VerifyUser::class.java))
+            return true
+        }
+
+    private val toTimeline: Boolean
+        get() {
+            val currentUser = mAuth.currentUser
+            updateUI(currentUser)
+            return true
+        }
+
+    private val toPastCo: Boolean
+        get() {
+            this.startActivity(Intent(this, DashBoard::class.java))
+            return true
+        }
+
     // MOVE TO NEW ACTIVITY WHEN MENU ITEM IS SELECTED
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.mnu_Transcript -> {
                 //  setContentView(R.layout.activity_transcript)
-                this.startActivity(Intent(this, Transcript::class.java))
-                return true
+                return toTranscript
             }
 
 
             R.id.mnu_Calculator -> {
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, GpaCalculator::class.java))
-                return true
+                return toCalculatorGPa
             }
             R.id.mnu_Sign_Out -> {
                 signOut()
                 // setContentView(R.layout.activity_gpa__calculator)
-                this.startActivity(Intent(this, VerifyUser::class.java))
-                return true
+                return signOut
             }
             R.id.mnu_Timeline ->{
 //                this.startActivity(Intent(this,MainActivity::class.java))
-                val currentUser = mAuth.currentUser
-                updateUI(currentUser )
-                return true
-              }
+                return toTimeline
+            }
             R.id.mnu_pastQuestions -> {
-                this.startActivity(Intent(this, DashBoard::class.java))
-                return true
+                return toPastCo
             }
 
             else ->
