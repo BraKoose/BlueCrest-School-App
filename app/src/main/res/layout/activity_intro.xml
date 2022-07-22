@@ -8,7 +8,7 @@
     tools:context=".IntroActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/toparc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="49dp"
@@ -20,7 +20,7 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/WelcomeBlueCrest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -34,29 +34,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/bottomarc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:src="@drawable/bottom_arc"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/toparc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/logo"
         android:layout_width="302dp"
         android:layout_height="305dp"
         android:layout_marginTop="1dp"
         android:scaleType="fitXY"
         android:src="@drawable/src_edited"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/toparc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/WelcomeBlueCrest" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button5"
+        android:id="@+id/Login"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -75,11 +75,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button6"
+        android:id="@+id/signUp"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -98,11 +98,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/Login"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView8"
+        android:id="@+id/copyright"
         style="@style/Widget.MaterialComponents.TextView"
         android:layout_width="324dp"
         android:layout_height="42dp"
@@ -116,6 +116,6 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/toparc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
