@@ -20,14 +20,14 @@ I learned Tools and Testing in Android Studio, Where I applied the knowledge in 
 
 Source code BRANCH [House Keeping] - https://lnkd.in/dK-M_Z7f
 
-![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest.jpeg)
+![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest.jpeg](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest%20.jpg)
 
 Day 2
 I learned Advance Constraint Layout, and Resources, Themeing App. I applied that knowledge and built an intro page. and clicks to log in to signUp. I have already login into the app.
 I am working on the Logins Pages. on Day3
 #Current Design 
 source code - https://lnkd.in/duzmaS_i
-![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest.jpg)
+![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest.jpg](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecretNew.png)
 
 
 
