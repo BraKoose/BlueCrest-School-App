@@ -20,7 +20,7 @@
         android:layout_marginBottom="99dp"
         android:layout_toStartOf="@+id/textView6"
         android:text="Wrong Answers:"
-        android:textColor="@color/darkred"
+        android:textColor="@color/accent"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -33,7 +33,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="95dp"
         android:text="TextView"
-        android:textColor="@color/darkred"
+        android:textColor="@color/accent"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -50,7 +50,7 @@
         android:layout_marginBottom="62dp"
         android:layout_toStartOf="@+id/textView4"
         android:text="Total Questions"
-        android:textColor="@color/white"
+        android:textColor="@color/icons"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -65,7 +65,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="57dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="@color/icons"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -80,8 +80,8 @@
         android:layout_marginBottom="63dp"
         android:layout_toStartOf="@+id/textView5"
         android:text="Correct Answers:"
-        android:textColor="@color/green"
-        android:textColorHint="@color/green"
+        android:textColor="@color/primary_light"
+        android:textColorHint="@color/primary_light"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -94,8 +94,8 @@
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="63dp"
         android:text="TextView"
-        android:textColor="@color/green"
-        android:textColorHint="@color/green"
+        android:textColor="@color/primary_light"
+        android:textColorHint="@color/primary_light"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 

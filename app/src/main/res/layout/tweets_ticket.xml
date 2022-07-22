@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:gravity="center"
-    android:background="@color/whitebackground"
+    android:background="@color/icons"
     android:layoutDirection="rtl"
     android:textAlignment="center"
 
@@ -59,7 +59,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_weight="0"
-                android:background="@color/lowDarkfont"
+                android:background="@color/secondary_text"
                 android:src="@drawable/personicon" />
 
             <TextView
@@ -72,7 +72,7 @@
                 android:layout_toLeftOf="@+id/webView"
                 android:layout_toRightOf="@+id/bulogin"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@color/icons"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:gravity="left"
@@ -86,7 +86,7 @@
             <TextView
                 android:paddingEnd="1dp"
                 android:layout_weight="0"
-                android:background="@color/white"
+                android:background="@color/icons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -110,7 +110,7 @@
             android:gravity="left"
             android:textAlignment="gravity"
 
-            android:background="@color/white"
+            android:background="@color/icons"
             android:layout_toLeftOf="@+id/webView"
             android:layout_toRightOf="@+id/bulogin"
             android:layout_toEndOf="@+id/bulogin"

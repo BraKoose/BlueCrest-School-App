@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:gravity="center"
-    android:background="@color/whitebackground"
+    android:background="@color/icons"
     android:layoutDirection="rtl"
     android:textAlignment="center"
 
