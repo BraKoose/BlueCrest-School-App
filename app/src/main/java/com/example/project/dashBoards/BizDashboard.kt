@@ -27,20 +27,32 @@ class BizDashboard : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         binding.accountBut.setOnClickListener {
-            val intent = Intent(this, Accounting::class.java)
-            startActivity(intent)
+            toAccounting()
         }
 
         binding.econsBut.setOnClickListener {
-            val intent = Intent(this, Economics::class.java)
-            startActivity(intent)
+            toEcons()
         }
 
         binding.statBut.setOnClickListener {
-            val intent = Intent(this, Statistics::class.java)
-            startActivity(intent)
+            statsBut()
         }
 
+    }
+
+    private fun toAccounting() {
+        val intent = Intent(this, Accounting::class.java)
+        startActivity(intent)
+    }
+
+    private fun toEcons() {
+        val intent = Intent(this, Economics::class.java)
+        startActivity(intent)
+    }
+
+    private fun statsBut() {
+        val intent = Intent(this, Statistics::class.java)
+        startActivity(intent)
     }
 
 
