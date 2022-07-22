@@ -5,7 +5,7 @@
 
     <stroke
         android:width="3dp"
-        android:color="@color/black"/>
-    <solid android:color="@color/white"/>
+        android:color="@color/primary_text"/>
+    <solid android:color="@color/icons"/>
 
 </shape>

@@ -6,7 +6,7 @@
 
 <stroke
     android:width="3dp"
-    android:color="@color/blue"/>
-<solid android:color="@color/white"/>
+    android:color="@color/primary"/>
+<solid android:color="@color/icons"/>
 </shape>
 
