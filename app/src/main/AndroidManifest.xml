@@ -15,7 +15,16 @@
         android:roundIcon="@drawable/src_edited"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".questions.Statistics"></activity>
+        <activity
+            android:name=".IntroActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".questions.Statistics" />
         <activity android:name=".questions.Accounting" />
         <activity android:name=".questions.Economics" />
         <activity android:name=".questions.Networking" />
@@ -30,7 +39,8 @@
         <activity android:name=".VerifyUser" />
         <activity android:name=".GpaCalculator" />
         <activity android:name=".Transcript" />
-        <activity android:name=".Login"
+        <activity
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
