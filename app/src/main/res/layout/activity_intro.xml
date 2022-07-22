@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/toparc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="618dp"
+        android:layout_height="918dp"
         android:layout_marginBottom="49dp"
+        android:contentDescription="TODO"
         android:src="@drawable/top_arc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/WelcomeBlueCrest"
@@ -35,13 +35,14 @@
 
     <ImageView
         android:id="@+id/bottomarc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="226dp"
+        android:layout_height="145dp"
+        android:layout_marginBottom="100dp"
         android:scaleType="fitXY"
         android:src="@drawable/bottom_arc"
         app:layout_constraintBottom_toBottomOf="@+id/toparc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.985"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -52,6 +53,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/src_edited"
         app:layout_constraintEnd_toEndOf="@+id/toparc"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeBlueCrest" />
 
@@ -107,15 +109,15 @@
         android:layout_width="324dp"
         android:layout_height="42dp"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="177dp"
+        android:fontFamily="@font/opensansitalic"
         android:text="404 Solutions 2022 © "
         android:textAlignment="center"
-        android:fontFamily="@font/opensansitalic"
         android:textSize="24dp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toparc" />
+        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
