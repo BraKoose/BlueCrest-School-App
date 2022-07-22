@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#27649d</color>
     <color name="darkBlue">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="blue"  >#FF33B5E5</color>
+    <color name="blue"  >#27649d</color>
     <color name="purple" >#FFAA66CC</color>
     <color name="green" >#99CC00</color>
     <color name="orange"  >#FFFFBB33</color>
@@ -14,7 +14,7 @@
     <color name="darkgreen"  >#669900</color>
     <color name="darkorange"  >#FFFF8800</color>
     <color name="darkred"  >#CC0000</color>
-    <color name="customeblue"  >#3b5998</color>
+    <color name="customeblue"  >#0954F3</color>
     <color name="lowDarkfont"  >#5D070E07</color>
     <color name="white" >#FFFFFF</color>
     <color name="whiteback"  >#f9f9f9</color>
