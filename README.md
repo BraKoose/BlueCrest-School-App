@@ -27,7 +27,7 @@ I learned Advance Constraint Layout, and Resources, Themeing App. I applied that
 I am working on the Logins Pages. on Day3
 #Current Design 
 source code - https://lnkd.in/duzmaS_i
-![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecretNew.png)
+![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecrest.jpg)
 
 
 
