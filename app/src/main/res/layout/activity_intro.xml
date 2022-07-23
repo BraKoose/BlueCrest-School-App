@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/introPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bluecrest_background"
@@ -16,8 +17,10 @@
         android:src="@drawable/top_arc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
 
     <TextView
         android:id="@+id/WelcomeBlueCrest"
@@ -37,42 +40,36 @@
         android:id="@+id/bottomarc"
         android:layout_width="226dp"
         android:layout_height="145dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="128dp"
         android:scaleType="fitXY"
         android:src="@drawable/bottom_arc"
         app:layout_constraintBottom_toBottomOf="@+id/toparc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="261dp"
         android:layout_height="256dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="44dp"
         android:scaleType="fitXY"
         android:src="@drawable/src_edited"
         app:layout_constraintEnd_toEndOf="@+id/toparc"
-        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeBlueCrest" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/Login"
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
+        style="@style/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/icons"
         android:text="Login"
         android:textAlignment="center"
-        android:textAppearance="@style/Widget.App.Button.OutlinedButton"
-        android:textColor="@color/icons"
-        android:textSize="23dp"
-        android:textStyle="bold"
-        app:cornerRadius="300dp"
         app:icon="@drawable/ic_baseline_login_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,27 +77,21 @@
         app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="TextContrastCheck" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/signUp"
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        style="@style/optionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
-        android:background="@color/icons"
+        android:layout_marginStart="32dp"
         android:text="SignUp"
         android:textAlignment="center"
-        android:textAppearance="@style/Widget.App.Button.OutlinedButton"
-        android:textColor="@color/icons"
-        android:textSize="23dp"
-        android:textStyle="bold"
-        app:cornerRadius="300dp"
         app:icon="@drawable/ic_baseline_create_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login"
+        app:layout_constraintStart_toEndOf="@+id/Login"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -110,6 +101,7 @@
         android:layout_height="42dp"
         android:layout_marginStart="176dp"
         android:layout_marginEnd="177dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/opensansitalic"
         android:text="404 Solutions 2022 © "
         android:textAlignment="center"
@@ -117,7 +109,6 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
