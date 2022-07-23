@@ -23,11 +23,11 @@
         android:id="@+id/WelcomeBlueCrest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/opensansbold"
         android:text="@string/Welcome"
         android:textColor="@color/icons"
-        android:fontFamily="@font/opensansbold"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,13 +47,13 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="302dp"
-        android:layout_height="305dp"
+        android:layout_width="261dp"
+        android:layout_height="256dp"
         android:layout_marginTop="1dp"
         android:scaleType="fitXY"
         android:src="@drawable/src_edited"
         app:layout_constraintEnd_toEndOf="@+id/toparc"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeBlueCrest" />
 
@@ -117,7 +117,7 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

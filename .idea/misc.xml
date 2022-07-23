@@ -7,20 +7,32 @@
         <entry key="app/src/main/res/drawable/bluecrest_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/butbackground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/dpback.xml" value="0.1" />
-        <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.8284313725490197" />
+        <entry key="app/src/main/res/layout-land/activity_dash_board.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/activity_result.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/activity_verify_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout-v21/activity_biz_dashboard.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-v21/activity_it_dashboard.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-v21/activity_mass_com_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_accounting.xml" value="0.1286727456940223" />
         <entry key="app/src/main/res/layout/activity_biz_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cplus.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dash_board.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/activity_discrete_maths.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_fashion_dashboard.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_gpa__calculator.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_it_dashboard.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_mass_com_dashboard.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_networking.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_statistics.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_transcript.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_verify_user.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layout/add_ticket.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/loading_ticket.xml" value="0.1" />
         <entry key="app/src/main/res/layout/tweets_ticket.xml" value="0.1" />
       </map>
     </option>
