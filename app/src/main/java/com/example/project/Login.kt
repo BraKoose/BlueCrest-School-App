@@ -43,11 +43,11 @@ class Login : AppCompatActivity(){
 
 
 
-        binding.ivImagePerson.setOnClickListener {
+        binding.ivImagePerson?.setOnClickListener {
             checkPermission()
         }
 
-        binding.butLogin.setOnClickListener {
+        binding.butLogin?.setOnClickListener {
             startActivity(Intent(this, VerifyUser::class.java))
 
         }
