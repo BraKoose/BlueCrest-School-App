@@ -40,7 +40,7 @@
         android:id="@+id/bottomarc"
         android:layout_width="226dp"
         android:layout_height="145dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="236dp"
         android:scaleType="fitXY"
         android:src="@drawable/bottom_arc"
         app:layout_constraintBottom_toBottomOf="@+id/toparc"
@@ -52,11 +52,11 @@
         android:id="@+id/logo"
         android:layout_width="261dp"
         android:layout_height="256dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:scaleType="fitXY"
         android:src="@drawable/src_edited"
         app:layout_constraintEnd_toEndOf="@+id/toparc"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.234"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeBlueCrest" />
 

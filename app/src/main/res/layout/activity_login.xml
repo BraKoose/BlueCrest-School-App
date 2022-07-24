@@ -44,7 +44,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="80dp"
                 android:fontFamily="@font/opensansboldextrabold"
                 android:text="Welcome \n Back"
                 android:textColor="@color/primary_text"
@@ -58,7 +58,7 @@
                 android:id="@+id/editTextPassword"
                 android:layout_width="347dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/editext_background"
                 android:drawableStart="@drawable/password"
                 android:drawablePadding="16dp"
@@ -76,7 +76,7 @@
                 android:id="@+id/editTextTextEmail"
                 android:layout_width="347dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/editext_background"
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="16dp"
@@ -87,6 +87,7 @@
                 android:padding="8dp"
                 android:textColorHint="@color/primary_text"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.468"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -94,12 +95,59 @@
                 android:id="@+id/imageView4"
                 android:layout_width="109dp"
                 android:layout_height="63dp"
-                android:layout_marginStart="268dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.887"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-                app:layout_constraintVertical_bias="0.108"
+                app:layout_constraintVertical_bias="0.115"
                 app:srcCompat="@drawable/btn_login" />
+
+            <Button
+                android:id="@+id/facebook"
+                style="@style/optionButton"
+                android:layout_width="81dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="32dp"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/facebook"
+                android:drawablePadding="16sp"
+                android:padding="16sp"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView4"
+                app:layout_constraintVertical_bias="0.034"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="180dp"
+                android:layout_height="39dp"
+                android:text="Are You a new User ? Register Now "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.363"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebook" />
+
+            <Button
+                android:id="@+id/Google"
+                style="@style/optionButton"
+                android:layout_width="81dp"
+                android:layout_height="57dp"
+                android:layout_marginEnd="184dp"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/google"
+                android:drawablePadding="16sp"
+                android:padding="16sp"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/facebook"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
