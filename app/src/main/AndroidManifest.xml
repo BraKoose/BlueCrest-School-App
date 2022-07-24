@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
             android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
@@ -39,7 +42,7 @@
         <activity android:name=".VerifyUser" />
         <activity android:name=".GpaCalculator" />
         <activity android:name=".Transcript" />
-        <activity android:name=".Login"/>
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity" />
     </application>
 
