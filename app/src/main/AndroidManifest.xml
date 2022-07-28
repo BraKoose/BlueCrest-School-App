@@ -17,10 +17,14 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SignUp"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".IntroActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +47,9 @@
         <activity android:name=".GpaCalculator" />
         <activity android:name=".Transcript" />
         <activity android:name=".Login" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
     </application>
 
 </manifest>

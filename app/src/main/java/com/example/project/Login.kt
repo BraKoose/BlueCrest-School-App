@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.project.dashBoards.DashBoard
 import com.example.project.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -47,13 +48,13 @@ class Login : AppCompatActivity(){
             checkPermission()
         }
 
-        binding.butLogin?.setOnClickListener {
-            startActivity(Intent(this, VerifyUser::class.java))
+        binding.signIn?.setOnClickListener {
+            startActivity(Intent(this, DashBoard::class.java))
 
         }
     }
 
-    fun LoginToFireBase(email: String, password: String) {
+    private fun LoginToFireBase(email: String, password: String) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -173,8 +174,8 @@ class Login : AppCompatActivity(){
 
     }
 
-    val PICK_IMAGE_CODE = 123
-    fun loadImage() {
+    private val PICK_IMAGE_CODE = 123
+    private fun loadImage() {
         val intent = Intent(
             Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI

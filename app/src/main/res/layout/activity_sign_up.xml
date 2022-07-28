@@ -120,7 +120,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/createAccount"
                 android:layout_width="109dp"
                 android:layout_height="63dp"
                 android:layout_marginStart="52dp"
