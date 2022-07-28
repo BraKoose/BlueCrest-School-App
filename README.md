@@ -31,3 +31,9 @@ source code - https://lnkd.in/duzmaS_i
 ![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/bluecretNew.png)
 
 
+
+Day 3
+I learned about Tools and Testing and learned about automated testing. However, I continued Theming with #MaterialUI the Bluecrest App and completed a login/SignUp screen.
+On day 4 I will test the logins with Logic/automated Ui tests too...
+
+![](https://github.com/BraKoose/BlueCrest-School-App/blob/master/LoginBlu.png)
