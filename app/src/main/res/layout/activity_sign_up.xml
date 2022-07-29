@@ -129,13 +129,13 @@
                 app:srcCompat="@drawable/btn_login" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/newUserLink"
                 android:layout_width="199dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginBottom="36dp"
                 android:fontFamily="@font/opensansregular"
-                android:text="Are You a new User ? Register Now "
+                android:text="Already have an account ? LogIn Now "
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

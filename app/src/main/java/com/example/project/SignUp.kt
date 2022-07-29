@@ -22,55 +22,16 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
-        binding.createAccount.setOnClickListener {
-            startActivity(Intent(this, DashBoard::class.java))
-        }
 
-    }
-
-    fun buSignIn(view: View) {
-        mAuth.signInWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
-            .addOnCompleteListener(this
-            ) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-
-                    val user = mAuth.currentUser
-                    if (user != null) {
-                        updateUI(user)
-                    }
-                } else {
-                    // If sign in fails, display a message to the user.
-
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    updateUI(null)
-                }
-
-                // ...
-            }
-
-    }
-
-    private fun updateUI(currentUser: FirebaseUser?) {
-
-        if (currentUser != null) {
-
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("email", currentUser.email)
-            intent.putExtra("uid", currentUser.uid)
-
+        //Redirects to Login
+        val oldUser = binding.newUserLink
+        oldUser.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
-
-            finish()
-        } else {
-//            Toast.makeText(applicationContext, "Authentication failed.",
-//                Toast.LENGTH_SHORT).show();
         }
 
     }
+
 
 
 }
