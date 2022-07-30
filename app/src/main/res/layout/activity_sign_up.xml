@@ -94,20 +94,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-            <ImageView
+            <Button
                 android:id="@+id/createAccount"
                 android:layout_width="109dp"
                 android:layout_height="63dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="performSignUp"
+                android:text="Create Account"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/newUserLink"
+                app:layout_constraintStart_toEndOf="@+id/userLoginLink"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-                app:srcCompat="@drawable/btn_login" />
+                android:background="@drawable/btn_login" />
 
             <TextView
-                android:id="@+id/newUserLink"
+                android:id="@+id/userLoginLink"
                 android:layout_width="199dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="24dp"
